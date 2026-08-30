@@ -1,0 +1,5 @@
+pandas
+groq
+python-dotenv
+streamlit
+rapidfuzz
