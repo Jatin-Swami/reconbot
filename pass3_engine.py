@@ -1,5 +1,6 @@
 import os
 import json
+import time
 import pandas as pd
 from dotenv import load_dotenv
 from groq import Groq
@@ -43,33 +44,44 @@ for _, bank_row in bank_df.iterrows():
     }}
     """
 
-    response = client.chat.completions.create(
-        model="openai/gpt-oss-20b",
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt}
-        ],
-        response_format={"type": "json_object"}
-    )
+    try:
+        response = client.chat.completions.create(
+            model="openai/gpt-oss-20b",
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt}
+            ],
+            response_format={"type": "json_object"}
+        )
 
-    result = json.loads(response.choices[0].message.content)
+        result = json.loads(response.choices[0].message.content)
 
-    # 3. Handle matches vs exceptions based on threshold
-    if result.get("match_found") and result.get("confidence", 0) > 0.8 and result.get("matched_ledger_id"):
-        matches_stage2.append({
-            "txn_id": bank_txn["txn_id"],
-            "ledger_id": result["matched_ledger_id"],
-            "confidence": result["confidence"],
-            "reasoning": result["reasoning"]
-        })
-        # Remove matched ledger item so it can't be matched twice
-        ledger_candidates = [c for c in ledger_candidates if c["ledger_id"] != result["matched_ledger_id"]]
-    else:
+        # 3. Handle matches vs exceptions based on threshold
+        if result.get("match_found") and result.get("confidence", 0) > 0.8 and result.get("matched_ledger_id"):
+            matches_stage2.append({
+                "txn_id": bank_txn["txn_id"],
+                "ledger_id": result["matched_ledger_id"],
+                "confidence": result["confidence"],
+                "reasoning": result["reasoning"]
+            })
+            # Remove matched ledger item so it can't be matched twice
+            ledger_candidates = [c for c in ledger_candidates if c["ledger_id"] != result["matched_ledger_id"]]
+        else:
+            exceptions.append({
+                "txn_id": bank_txn["txn_id"],
+                "reasoning": result.get("reasoning", "No high-confidence candidate matched.")
+            })
+            
+    except Exception as e:
+        print(f"⚠️ JSON generation failed for {bank_txn['txn_id']}, pushing to exceptions.")
         exceptions.append({
             "txn_id": bank_txn["txn_id"],
-            "reasoning": result.get("reasoning", "No high-confidence candidate matched.")
+            "reasoning": "AI reconciliation failed due to a JSON generation syntax error."
         })
-
+        
+    print(f"Processed {bank_txn['txn_id']}... sleeping 15s for rate limits")
+    time.sleep(15)
+  
 # 4. Save output CSVs to fulfill the contract
 pd.DataFrame(matches_stage2).to_csv("matches_stage2.csv", index=False)
 pd.DataFrame(exceptions).to_csv("exceptions.csv", index=False)
