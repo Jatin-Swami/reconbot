@@ -1,28 +1,15 @@
-# ReconBot 🤖
-**Razorpay AI Buildathon 2026 — Track 4: AI Finance Controller**
+# 📊 ReconBot: AI Financial Reconciliation Engine
 
-ReconBot is an AI agent that reconciles a company's bank statement against its internal ledger. It uses a three-pass architecture to maximize speed and minimize API costs, falling back to an LLM only for ambiguous matches, and bubbling up honest exceptions when confidence is low.
+An intelligent, hybrid reconciliation pipeline built for the Razorpay Hackathon. ReconBot automates the matching of bank statements to internal ledger entries, reducing manual accounting overhead while maintaining strict auditability.
 
-## 🏗️ Architecture Pipeline
-1. **Pass 1 (Exact Match):** `reference_id` + `amount` + `date` all match.
-2. **Pass 2 (Fuzzy Match):** `amount` within tolerance, dates close, descriptions similar (via `rapidfuzz`).
-3. **Pass 3 (AI Match):** Claude 3.5 Haiku evaluates the leftovers via structured tool use.
+## 🧠 Architecture
+ReconBot uses a 3-pass hybrid matching engine to optimize for both speed and cost:
+1. **Pass 1 (Exact Match):** Standard pandas merges for identical amounts, dates, and reference IDs.
+2. **Pass 2 (Fuzzy Match):** RapidFuzz evaluates string similarities (e.g., slight vendor name variations) for high-confidence matches.
+3. **Pass 3 (AI Agent):** A Groq-powered LLM (`openai/gpt-oss-20b`) handles edge cases (e.g., missing invoices, date shifts, batch payments) using semantic reasoning. 
 
-## 📁 File Contract
-To ensure the parallel development pipeline works, we adhere to these exact I/O files:
+## 🚀 How to Run Locally
 
-**Input Data:**
-* `bank_statement.csv`
-* `ledger.csv`
-
-**Stage 1 & 2 Output (Deterministic):**
-* `matches_stage1.csv`
-* `unmatched_bank.csv`
-* `unmatched_ledger.csv`
-
-**Stage 3 Output (AI):**
-* `matches_stage2.csv`
-* `exceptions.csv`
-
-## 🚀 Setup Instructions
-*(To be completed on Day 6)*
+**1. Install Dependencies**
+```bash
+pip install -r requirements.txt
