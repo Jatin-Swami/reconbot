@@ -1,11 +1,35 @@
 import streamlit as st
 import pandas as pd
 import os
+import subprocess
+import sys
+from dotenv import load_dotenv # <-- Add this
 
+load_dotenv()
 # 1. Page Configuration
 st.set_page_config(page_title="ReconBot Dashboard", page_icon="📊", layout="wide")
 st.title("📊 ReconBot: AI Financial Reconciliation")
 st.markdown("Automated clearing for bank and ledger discrepancies.")
+st.sidebar.header("⚙️ Pipeline Controls")
+if st.sidebar.button("🚀 Run Full Reconciliation"):
+    if not os.getenv("GROQ_API_KEY"):
+        st.sidebar.error("❌ GROQ_API_KEY is missing. Please set it in your .env file or system environment.")
+    else:
+        try:
+            with st.spinner("Running Pass 1 & 2 (Deterministic & Fuzzy)..."):
+                # sys.executable guarantees it uses the exact same Python environment as Streamlit
+                subprocess.run([sys.executable, "match_engine.py"], check=True, capture_output=True, text=True)
+                
+            with st.spinner("Running Pass 3 (LLM Reasoning)..."):
+                subprocess.run([sys.executable, "pass3_engine.py"], check=True, capture_output=True, text=True)
+                
+            st.sidebar.success("✅ Pipeline complete!")
+            st.rerun() # Reloads the dashboard with new CSV data
+            
+        except subprocess.CalledProcessError as e:
+            # If a script crashes, catch the error and print it cleanly in the UI
+            st.sidebar.error(f"❌ Script crashed: {e.cmd[1]}")
+            st.sidebar.code(e.stderr) # Prints the exact Python traceback to the dashboard
 
 # 2. Helper function to load data safely
 def load_data(file_name):

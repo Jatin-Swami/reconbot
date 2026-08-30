@@ -1,71 +1,76 @@
 ledger_id,date,amount,party_name,invoice_id,description
-LEDG-50032,2023-10-09,2321.71,Company_G,INV-1032,Vendor payment
-LEDG-50017,2023-10-31,3841.12,Company_R,INV-1017,Vendor payment
-LEDG-50062,2023-10-17,2587.64,Service_Provider_62,INV-1062,Consulting services
-LEDG-50006,2023-10-19,2167.42,Company_G,INV-1006,Vendor payment
-LEDG-50052,2023-10-08,2850.7,Service_Provider_52,INV-1052,Consulting services
-LEDG-50055,2023-10-02,848.92,Service_Provider_55,INV-1055,Consulting services
-LEDG-50071,2023-10-29,744.3,Software Inc,INV-1071,Annual SaaS License
-LEDG-50018,2023-10-04,554.45,Company_S,INV-1018,Vendor payment
-LEDG-50015,2023-10-23,2170.81,Company_P,INV-1015,Vendor payment
-LEDG-50033,2023-10-27,1887.68,Company_H,INV-1033,Vendor payment
-LEDG-50030,2023-10-03,4291.06,Company_E,INV-1030,Vendor payment
-LEDG-50038,2023-10-06,2717.29,Company_M,INV-1038,Vendor payment
-LEDG-50016,2023-10-09,861.85,Company_Q,INV-1016,Vendor payment
-LEDG-50054,2023-10-08,2596.68,Service_Provider_54,INV-1054,Consulting services
-LEDG-50027,2023-10-07,3552.4,Company_B,INV-1027,Vendor payment
-LEDG-50005,2023-10-29,2772.3,Company_F,INV-1005,Vendor payment
-LEDG-50047,2023-10-03,1133.82,Company_V,INV-1047,Vendor payment
-LEDG-50034,2023-10-12,1840.83,Company_I,INV-1034,Vendor payment
-LEDG-50045,2023-10-27,257.29,Company_T,INV-1045,Vendor payment
-LEDG-50020,2023-10-12,3058.26,Company_U,INV-1020,Vendor payment
-LEDG-50004,2023-10-04,3415.83,Company_E,INV-1004,Vendor payment
-LEDG-50024,2023-10-18,1536.57,Company_Y,INV-1024,Vendor payment
-LEDG-50009,2023-10-01,2850.1,Company_J,INV-1009,Vendor payment
-LEDG-50001,2023-10-21,645.52,Company_B,INV-1001,Vendor payment
-LEDG-50010,2023-10-23,3284.43,Company_K,INV-1010,Vendor payment
-LEDG-50007,2023-10-01,559.11,Company_H,INV-1007,Vendor payment
-LEDG-50036,2023-10-30,3449.38,Company_K,INV-1036,Vendor payment
-LEDG-50029,2023-10-25,1518.0,Company_D,INV-1029,Vendor payment
-LEDG-50057,2023-10-20,2692.66,Service_Provider_57,INV-1057,Consulting services
-LEDG-50013,2023-10-26,4359.57,Company_N,INV-1013,Vendor payment
-LEDG-50011,2023-10-18,2155.65,Company_L,INV-1011,Vendor payment
-LEDG-50035,2023-10-22,1408.19,Company_J,INV-1035,Vendor payment
-LEDG-50051,2023-10-29,2348.37,Service_Provider_51,INV-1051,Consulting services
-LEDG-50026,2023-10-28,1872.01,Company_A,INV-1026,Vendor payment
-LEDG-50014,2023-10-25,4048.51,Company_O,INV-1014,Vendor payment
-LEDG-50040,2023-10-13,1422.74,Company_O,INV-1040,Vendor payment
-LEDG-50012,2023-10-15,2987.4,Company_M,INV-1012,Vendor payment
-LEDG-50023,2023-10-30,1954.82,Company_X,INV-1023,Vendor payment
-LEDG-50044,2023-10-25,374.1,Company_S,INV-1044,Vendor payment
-LEDG-50073,2023-10-29,681.49,Software Inc,INV-1073,Annual SaaS License
-LEDG-50063,2023-10-21,4224.18,Service_Provider_63,INV-1063,Consulting services
-LEDG-50002,2023-10-24,1447.64,Company_C,INV-1002,Vendor payment
-LEDG-50043,2023-10-11,4229.97,Company_R,INV-1043,Vendor payment
-LEDG-50064,2023-10-07,1932.18,Service_Provider_64,INV-1064,Consulting services
-LEDG-50031,2023-10-28,594.91,Company_F,INV-1031,Vendor payment
-LEDG-50050,2023-10-21,2546.23,Company_Y,INV-1050,Vendor payment
-LEDG-50059,2023-10-29,3779.3,Service_Provider_59,INV-1059,Consulting services
-LEDG-50061,2023-10-01,4391.68,Service_Provider_61,INV-1061,Consulting services
-LEDG-50056,2023-10-22,3022.4,Service_Provider_56,INV-1056,Consulting services
-LEDG-50060,2023-10-11,1538.15,Service_Provider_60,INV-1060,Consulting services
-LEDG-50058,2023-10-28,3433.39,Service_Provider_58,INV-1058,Consulting services
-LEDG-50041,2023-10-30,3236.0,Company_P,INV-1041,Vendor payment
-LEDG-50022,2023-10-15,2727.52,Company_W,INV-1022,Vendor payment
-LEDG-50019,2023-10-04,1859.0,Company_T,INV-1019,Vendor payment
-LEDG-50028,2023-10-02,3340.19,Company_C,INV-1028,Vendor payment
-LEDG-50053,2023-10-19,4499.33,Service_Provider_53,INV-1053,Consulting services
-LEDG-50049,2023-10-23,1641.92,Company_X,INV-1049,Vendor payment
-LEDG-50039,2023-10-08,900.67,Company_N,INV-1039,Vendor payment
-LEDG-50025,2023-10-21,3130.75,Company_Z,INV-1025,Vendor payment
-LEDG-50003,2023-10-08,783.74,Company_D,INV-1003,Vendor payment
-LEDG-50046,2023-10-11,2065.71,Company_U,INV-1046,Vendor payment
-LEDG-50048,2023-10-31,2879.18,Company_W,INV-1048,Vendor payment
-LEDG-50074,2023-10-29,992.66,Software Inc,INV-1074,Annual SaaS License
-LEDG-50072,2023-10-29,555.93,Software Inc,INV-1072,Annual SaaS License
-LEDG-50065,2023-10-31,4600.62,Service_Provider_65,INV-1065,Consulting services
-LEDG-50042,2023-10-18,1176.11,Company_Q,INV-1042,Vendor payment
-LEDG-50037,2023-10-03,3084.74,Company_L,INV-1037,Vendor payment
-LEDG-50021,2023-10-26,312.91,Company_V,INV-1021,Vendor payment
-LEDG-50075,2023-10-29,903.39,Software Inc,INV-1075,Annual SaaS License
-LEDG-50008,2023-10-08,2576.24,Company_I,INV-1008,Vendor payment
+LEDG-50051,2023-10-05,1984.11,Service_Provider_51,INV-1051,Consulting services
+LEDG-50029,2023-10-16,1781.22,Company_D,INV-1029,Vendor payment
+LEDG-50002,2023-10-02,1951.58,Company_C,INV-1002,Vendor payment
+LEDG-50054,2023-10-12,4389.02,Service_Provider_54,INV-1054,Consulting services
+LEDG-50022,2023-10-19,2372.48,Company_W,INV-1022,Vendor payment
+LEDG-50011,2023-10-30,2273.46,Company_L,INV-1011,Vendor payment
+LEDG-50038,2023-10-14,2160.06,Company_M,INV-1038,Vendor payment
+LEDG-50058,2023-10-22,2156.72,Service_Provider_58,INV-1058,Consulting services
+LEDG-50071,2023-10-29,988.13,Software Inc,INV-1071,Annual SaaS License
+LEDG-50015,2023-10-26,2633.95,Company_P,INV-1015,Vendor payment
+LEDG-50013,2023-10-25,2697.58,Company_N,INV-1013,Vendor payment
+LEDG-50025,2023-10-11,1834.76,Company_Z,INV-1025,Vendor payment
+LEDG-50080,2023-10-01,2936.53,AWS Cloud Hosting,AW-80,Monthly Server Bill
+LEDG-50008,2023-10-12,4456.47,Company_I,INV-1008,Vendor payment
+LEDG-50024,2023-10-05,468.34,Company_Y,INV-1024,Vendor payment
+LEDG-50014,2023-10-06,3479.69,Company_O,INV-1014,Vendor payment
+LEDG-50079,2023-10-04,1229.24,AWS Cloud Hosting,AW-79,Monthly Server Bill
+LEDG-50077,2023-10-12,1357.01,AWS Cloud Hosting,AW-77,Monthly Server Bill
+LEDG-50046,2023-10-06,1054.88,Company_U,INV-1046,Vendor payment
+LEDG-50026,2023-10-02,500.97,Company_A,INV-1026,Vendor payment
+LEDG-50031,2023-10-04,1070.99,Company_F,INV-1031,Vendor payment
+LEDG-50074,2023-10-29,744.85,Software Inc,INV-1074,Annual SaaS License
+LEDG-50057,2023-10-07,4562.12,Service_Provider_57,INV-1057,Consulting services
+LEDG-50005,2023-10-31,1900.83,Company_F,INV-1005,Vendor payment
+LEDG-50050,2023-10-09,4979.04,Company_Y,INV-1050,Vendor payment
+LEDG-50048,2023-10-06,2195.08,Company_W,INV-1048,Vendor payment
+LEDG-50065,2023-10-01,3975.73,Service_Provider_65,INV-1065,Consulting services
+LEDG-50010,2023-10-13,3621.89,Company_K,INV-1010,Vendor payment
+LEDG-50006,2023-10-23,2367.09,Company_G,INV-1006,Vendor payment
+LEDG-50040,2023-10-29,442.69,Company_O,INV-1040,Vendor payment
+LEDG-50028,2023-10-25,3431.75,Company_C,INV-1028,Vendor payment
+LEDG-50020,2023-10-15,718.76,Company_U,INV-1020,Vendor payment
+LEDG-50060,2023-10-06,3901.87,Service_Provider_60,INV-1060,Consulting services
+LEDG-50036,2023-10-11,2413.06,Company_K,INV-1036,Vendor payment
+LEDG-50021,2023-10-16,3133.92,Company_V,INV-1021,Vendor payment
+LEDG-50023,2023-10-26,1558.78,Company_X,INV-1023,Vendor payment
+LEDG-50062,2023-10-16,1048.28,Service_Provider_62,INV-1062,Consulting services
+LEDG-50063,2023-10-04,2883.8,Service_Provider_63,INV-1063,Consulting services
+LEDG-50055,2023-10-22,855.86,Service_Provider_55,INV-1055,Consulting services
+LEDG-50041,2023-10-03,2819.27,Company_P,INV-1041,Vendor payment
+LEDG-50032,2023-10-07,4581.3,Company_G,INV-1032,Vendor payment
+LEDG-50019,2023-10-23,3073.34,Company_T,INV-1019,Vendor payment
+LEDG-50012,2023-10-29,4323.85,Company_M,INV-1012,Vendor payment
+LEDG-50056,2023-10-26,1586.15,Service_Provider_56,INV-1056,Consulting services
+LEDG-50003,2023-10-24,4673.11,Company_D,INV-1003,Vendor payment
+LEDG-50018,2023-10-04,1227.39,Company_S,INV-1018,Vendor payment
+LEDG-50072,2023-10-29,680.96,Software Inc,INV-1072,Annual SaaS License
+LEDG-50053,2023-10-27,840.21,Service_Provider_53,INV-1053,Consulting services
+LEDG-50035,2023-10-31,351.36,Company_J,INV-1035,Vendor payment
+LEDG-50044,2023-10-29,449.93,Company_S,INV-1044,Vendor payment
+LEDG-50042,2023-10-12,2769.38,Company_Q,INV-1042,Vendor payment
+LEDG-50027,2023-10-20,4615.11,Company_B,INV-1027,Vendor payment
+LEDG-50004,2023-10-08,1941.57,Company_E,INV-1004,Vendor payment
+LEDG-50009,2023-10-04,3998.61,Company_J,INV-1009,Vendor payment
+LEDG-50052,2023-10-31,2085.1,Service_Provider_52,INV-1052,Consulting services
+LEDG-50073,2023-10-29,747.45,Software Inc,INV-1073,Annual SaaS License
+LEDG-50030,2023-10-06,3616.87,Company_E,INV-1030,Vendor payment
+LEDG-50064,2023-10-26,3739.84,Service_Provider_64,INV-1064,Consulting services
+LEDG-50034,2023-10-22,1103.22,Company_I,INV-1034,Vendor payment
+LEDG-50061,2023-10-01,2972.24,Service_Provider_61,INV-1061,Consulting services
+LEDG-50017,2023-10-17,4570.59,Company_R,INV-1017,Vendor payment
+LEDG-50001,2023-10-11,2631.33,Company_B,INV-1001,Vendor payment
+LEDG-50045,2023-10-15,2369.15,Company_T,INV-1045,Vendor payment
+LEDG-50076,2023-10-09,1382.59,AWS Cloud Hosting,AW-76,Monthly Server Bill
+LEDG-50059,2023-10-13,3839.14,Service_Provider_59,INV-1059,Consulting services
+LEDG-50016,2023-10-03,2644.44,Company_Q,INV-1016,Vendor payment
+LEDG-50007,2023-10-05,4631.24,Company_H,INV-1007,Vendor payment
+LEDG-50075,2023-10-29,520.54,Software Inc,INV-1075,Annual SaaS License
+LEDG-50049,2023-10-22,1357.79,Company_X,INV-1049,Vendor payment
+LEDG-50039,2023-10-25,862.39,Company_N,INV-1039,Vendor payment
+LEDG-50043,2023-10-21,1007.93,Company_R,INV-1043,Vendor payment
+LEDG-50037,2023-10-29,533.6,Company_L,INV-1037,Vendor payment
+LEDG-50047,2023-10-23,886.2,Company_V,INV-1047,Vendor payment
+LEDG-50033,2023-10-08,3243.47,Company_H,INV-1033,Vendor payment
+LEDG-50078,2023-10-17,2117.26,AWS Cloud Hosting,AW-78,Monthly Server Bill

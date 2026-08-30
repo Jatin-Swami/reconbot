@@ -1,5 +1,5 @@
-pandas
-groq
-python-dotenv
-streamlit
-rapidfuzz
+pandas==2.2.2
+groq==0.9.0
+python-dotenv==1.0.1
+streamlit==1.36.0
+rapidfuzz==3.9.3

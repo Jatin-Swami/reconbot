@@ -1,21 +1,11 @@
 ledger_id,date,amount,party_name,invoice_id,description
-LEDG-50062,2023-10-17,2587.64,Service_Provider_62,INV-1062,Consulting services
-LEDG-50052,2023-10-08,2850.7,Service_Provider_52,INV-1052,Consulting services
-LEDG-50055,2023-10-02,848.92,Service_Provider_55,INV-1055,Consulting services
-LEDG-50071,2023-10-29,744.3,Software Inc,INV-1071,Annual SaaS License
-LEDG-50054,2023-10-08,2596.68,Service_Provider_54,INV-1054,Consulting services
-LEDG-50057,2023-10-20,2692.66,Service_Provider_57,INV-1057,Consulting services
-LEDG-50051,2023-10-29,2348.37,Service_Provider_51,INV-1051,Consulting services
-LEDG-50073,2023-10-29,681.49,Software Inc,INV-1073,Annual SaaS License
-LEDG-50063,2023-10-21,4224.18,Service_Provider_63,INV-1063,Consulting services
-LEDG-50064,2023-10-07,1932.18,Service_Provider_64,INV-1064,Consulting services
-LEDG-50059,2023-10-29,3779.3,Service_Provider_59,INV-1059,Consulting services
-LEDG-50061,2023-10-01,4391.68,Service_Provider_61,INV-1061,Consulting services
-LEDG-50056,2023-10-22,3022.4,Service_Provider_56,INV-1056,Consulting services
-LEDG-50060,2023-10-11,1538.15,Service_Provider_60,INV-1060,Consulting services
-LEDG-50058,2023-10-28,3433.39,Service_Provider_58,INV-1058,Consulting services
-LEDG-50053,2023-10-19,4499.33,Service_Provider_53,INV-1053,Consulting services
-LEDG-50074,2023-10-29,992.66,Software Inc,INV-1074,Annual SaaS License
-LEDG-50072,2023-10-29,555.93,Software Inc,INV-1072,Annual SaaS License
-LEDG-50065,2023-10-31,4600.62,Service_Provider_65,INV-1065,Consulting services
-LEDG-50075,2023-10-29,903.39,Software Inc,INV-1075,Annual SaaS License
+LEDG-50071,2023-10-29,988.13,Software Inc,INV-1071,Annual SaaS License
+LEDG-50080,2023-10-01,2936.53,AWS Cloud Hosting,AW-80,Monthly Server Bill
+LEDG-50079,2023-10-04,1229.24,AWS Cloud Hosting,AW-79,Monthly Server Bill
+LEDG-50077,2023-10-12,1357.01,AWS Cloud Hosting,AW-77,Monthly Server Bill
+LEDG-50074,2023-10-29,744.85,Software Inc,INV-1074,Annual SaaS License
+LEDG-50072,2023-10-29,680.96,Software Inc,INV-1072,Annual SaaS License
+LEDG-50073,2023-10-29,747.45,Software Inc,INV-1073,Annual SaaS License
+LEDG-50076,2023-10-09,1382.59,AWS Cloud Hosting,AW-76,Monthly Server Bill
+LEDG-50075,2023-10-29,520.54,Software Inc,INV-1075,Annual SaaS License
+LEDG-50078,2023-10-17,2117.26,AWS Cloud Hosting,AW-78,Monthly Server Bill
