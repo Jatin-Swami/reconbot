@@ -1,0 +1,2 @@
+txn_id,reasoning
+T-103,"Bank transaction is a $50 Uber expense on 2026-08-30, whereas the only candidate ledger entry is a $1500 Stripe payout on 2026-08-31 with unrelated description. The amounts, dates, and descriptions do not align, so no match can be found."
