@@ -1,11 +1,11 @@
 ledger_id,date,amount,party_name,invoice_id,description
-LEDG-50071,2023-10-29,988.13,Software Inc,INV-1071,Annual SaaS License
-LEDG-50080,2023-10-01,2936.53,AWS Cloud Hosting,AW-80,Monthly Server Bill
-LEDG-50079,2023-10-04,1229.24,AWS Cloud Hosting,AW-79,Monthly Server Bill
-LEDG-50077,2023-10-12,1357.01,AWS Cloud Hosting,AW-77,Monthly Server Bill
-LEDG-50074,2023-10-29,744.85,Software Inc,INV-1074,Annual SaaS License
-LEDG-50072,2023-10-29,680.96,Software Inc,INV-1072,Annual SaaS License
-LEDG-50073,2023-10-29,747.45,Software Inc,INV-1073,Annual SaaS License
-LEDG-50076,2023-10-09,1382.59,AWS Cloud Hosting,AW-76,Monthly Server Bill
-LEDG-50075,2023-10-29,520.54,Software Inc,INV-1075,Annual SaaS License
-LEDG-50078,2023-10-17,2117.26,AWS Cloud Hosting,AW-78,Monthly Server Bill
+LEDG-50072,2023-10-29,730.53,Software Inc,INV-1072,Annual SaaS License
+LEDG-50073,2023-10-29,896.67,Software Inc,INV-1073,Annual SaaS License
+LEDG-50080,2023-10-15,2572.86,AWS Cloud Hosting,AW-80,Monthly Server Bill
+LEDG-50078,2023-10-16,1577.99,AWS Cloud Hosting,AW-78,Monthly Server Bill
+LEDG-50074,2023-10-29,812.89,Software Inc,INV-1074,Annual SaaS License
+LEDG-50075,2023-10-29,854.41,Software Inc,INV-1075,Annual SaaS License
+LEDG-50077,2023-10-03,1084.76,AWS Cloud Hosting,AW-77,Monthly Server Bill
+LEDG-50071,2023-10-29,718.29,Software Inc,INV-1071,Annual SaaS License
+LEDG-50076,2023-10-02,2785.26,AWS Cloud Hosting,AW-76,Monthly Server Bill
+LEDG-50079,2023-10-20,2902.45,AWS Cloud Hosting,AW-79,Monthly Server Bill
