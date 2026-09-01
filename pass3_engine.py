@@ -1,21 +1,34 @@
 import os
 import json
 import time
+import sys
+from datetime import datetime
 import pandas as pd
 from dotenv import load_dotenv
 from groq import Groq
-import sys
 
 load_dotenv()
 
 if not os.getenv("GROQ_API_KEY"):
     print("⚠️ GROQ_API_KEY missing! Skipping Pass 3 gracefully.")
-    # Route all leftovers to exceptions without crashing
-    pd.DataFrame([]).to_csv("matches_stage2.csv", index=False)
+    # Route all leftovers to exceptions without crashing.
+    # Explicit columns so a pd.read_csv().empty check downstream (app.py) still
+    # works and doesn't KeyError on a header-less CSV.
+    pd.DataFrame([], columns=["txn_id", "ledger_id", "confidence", "reasoning"]).to_csv("matches_stage2.csv", index=False)
     if os.path.exists("unmatched_bank.csv"):
         unmatched_df = pd.read_csv("unmatched_bank.csv")
         unmatched_df["reasoning"] = "Pass 3 Skipped: Missing API Key."
         unmatched_df[["txn_id", "reasoning"]].to_csv("exceptions.csv", index=False)
+    else:
+        pd.DataFrame([], columns=["txn_id", "reasoning"]).to_csv("exceptions.csv", index=False)
+
+    # Still surface a real (0%) cost-savings number instead of leaving app.py
+    # showing a stale metric from a previous run.
+    if os.path.exists("run_state.json"):
+        with open("run_state.json") as f:
+            run_state = json.load(f)
+        with open("cost_metrics.json", "w") as f:
+            json.dump({"compute_saved_pct": 0.0, "note": "Pass 3 skipped: missing API key"}, f)
     sys.exit(0) # Exit cleanly before Groq init
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
@@ -70,8 +83,7 @@ for _, bank_row in bank_df.iterrows():
                 response_format={"type": "json_object"}
             )
             
-            # --- NEW: Raw JSONL Audit Logging ---
-            from datetime import datetime
+            # --- Raw JSONL Audit Logging (append-only, one line per LLM call) ---
             try:
                 with open("llm_audit_log.jsonl", "a") as f:
                     log_entry = {
@@ -135,8 +147,20 @@ df_stage2.to_csv("matches_stage2.csv", index=False)
 df_exceptions.to_csv("exceptions.csv", index=False)
 
 # 5. Calculate and export cost metrics
-total_initial_txns = 75 # Updated to 75 based on the new synthetic dataset size
+# Read the true dataset size from run_state.json (written by match_engine.py) instead
+# of hardcoding it. Falls back gracefully if match_engine.py wasn't run first, so this
+# script never crashes -- it just can't compute a percentage without a denominator.
 txns_sent_to_ai = len(bank_df)
+
+if os.path.exists("run_state.json"):
+    with open("run_state.json") as f:
+        run_state = json.load(f)
+    total_initial_txns = run_state["total_bank_txns"]
+else:
+    print("⚠️  run_state.json not found (run match_engine.py first). "
+          "Falling back to an estimate: local resolutions + txns sent to AI.")
+    total_initial_txns = txns_sent_to_ai  # can't know locally-resolved count without it
+
 txns_resolved_locally = total_initial_txns - txns_sent_to_ai
 compute_saved_pct = (txns_resolved_locally / total_initial_txns) * 100 if total_initial_txns > 0 else 0
 

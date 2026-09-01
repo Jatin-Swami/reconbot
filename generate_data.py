@@ -2,6 +2,8 @@ import pandas as pd
 from datetime import datetime, timedelta
 import random
 
+CURRENCY = "INR"  # All amounts are in INR to match the Razorpay hackathon's domain context.
+
 def generate_recon_data():
     bank_records = []
     ledger_records = []
@@ -18,11 +20,11 @@ def generate_recon_data():
         party = f"Company_{chr(65 + (i % 26))}" 
         
         bank_records.append({
-            'txn_id': f"TXN-{10000 + i}", 'date': date_str, 'amount': amount,
+            'txn_id': f"TXN-{10000 + i}", 'date': date_str, 'amount': amount, 'currency': CURRENCY,
             'description': f"Payment to {party} ref {inv_id}", 'reference_id': inv_id
         })
         ledger_records.append({
-            'ledger_id': f"LEDG-{50000 + i}", 'date': date_str, 'amount': amount,
+            'ledger_id': f"LEDG-{50000 + i}", 'date': date_str, 'amount': amount, 'currency': CURRENCY,
             'party_name': party, 'invoice_id': inv_id, 'description': "Vendor payment"
         })
         ground_truth.append({'txn_id': f"TXN-{10000 + i}", 'true_ledger_id': f"LEDG-{50000 + i}"})
@@ -38,11 +40,13 @@ def generate_recon_data():
         
         bank_records.append({
             'txn_id': f"TXN-{10000 + i}", 'date': bank_date.strftime('%Y-%m-%d'), 
-            'amount': bank_amount, 'description': f"ACH Transfer Srvce_Providr_{i} {inv_id}", 'reference_id': None
+            'amount': bank_amount, 'currency': CURRENCY,
+            'description': f"ACH Transfer Srvce_Providr_{i} {inv_id}", 'reference_id': None
         })
         ledger_records.append({
             'ledger_id': f"LEDG-{50000 + i}", 'date': ledger_date.strftime('%Y-%m-%d'), 
-            'amount': amount, 'party_name': party, 'invoice_id': inv_id, 'description': "Consulting services"
+            'amount': amount, 'currency': CURRENCY,
+            'party_name': party, 'invoice_id': inv_id, 'description': "Consulting services"
         })
         ground_truth.append({'txn_id': f"TXN-{10000 + i}", 'true_ledger_id': f"LEDG-{50000 + i}"})
 
@@ -50,19 +54,24 @@ def generate_recon_data():
     for i in range(66, 71):
         bank_records.append({
             'txn_id': f"TXN-{10000 + i}", 'date': (start_date + timedelta(days=15)).strftime('%Y-%m-%d'),
-            'amount': 25.00, 'description': "Monthly Account Maintenance Fee", 'reference_id': None
+            'amount': 25.00, 'currency': CURRENCY,
+            'description': "Monthly Account Maintenance Fee", 'reference_id': None
         })
         ground_truth.append({'txn_id': f"TXN-{10000 + i}", 'true_ledger_id': None})
         
     for i in range(71, 76):
         ledger_records.append({
             'ledger_id': f"LEDG-{50000 + i}", 'date': (start_date + timedelta(days=28)).strftime('%Y-%m-%d'),
-            'amount': round(random.uniform(500.0, 1000.0), 2), 'party_name': "Software Inc", 
+            'amount': round(random.uniform(500.0, 1000.0), 2), 'currency': CURRENCY,
+            'party_name': "Software Inc", 
             'invoice_id': f"INV-{1000 + i}", 'description': "Annual SaaS License"
         })
 
     # --- 4. SEMANTIC MATCHES (Sent to Pass 3, AI rescues them) ---
-    for i in range(76, 81):
+    # Mix of a globally-relatable SaaS example and a Razorpay-flavored payment
+    # gateway settlement example -- the exact kind of mismatch a payments company
+    # sees daily (gateway settlement narration vs. merchant's internal order ID).
+    for i in range(76, 79):
         ledger_date = start_date + timedelta(days=random.randint(0, 20))
         # 5 day gap instantly fails Pass 2's 3-day rule
         bank_date = ledger_date + timedelta(days=5) 
@@ -70,11 +79,32 @@ def generate_recon_data():
         
         bank_records.append({
             'txn_id': f"TXN-{10000 + i}", 'date': bank_date.strftime('%Y-%m-%d'), 
-            'amount': amount, 'description': f"AMZN WEB SRVCS {i}", 'reference_id': f"AW-{i}"
+            'amount': amount, 'currency': CURRENCY,
+            'description': f"AMZN WEB SRVCS {i}", 'reference_id': f"AW-{i}"
         })
         ledger_records.append({
             'ledger_id': f"LEDG-{50000 + i}", 'date': ledger_date.strftime('%Y-%m-%d'), 
-            'amount': amount, 'party_name': "AWS Cloud Hosting", 'invoice_id': f"AW-{i}", 'description': "Monthly Server Bill"
+            'amount': amount, 'currency': CURRENCY,
+            'party_name': "AWS Cloud Hosting", 'invoice_id': f"AW-{i}", 'description': "Monthly Server Bill"
+        })
+        ground_truth.append({'txn_id': f"TXN-{10000 + i}", 'true_ledger_id': f"LEDG-{50000 + i}"})
+
+    for i in range(79, 81):
+        ledger_date = start_date + timedelta(days=random.randint(0, 20))
+        bank_date = ledger_date + timedelta(days=5)
+        amount = round(random.uniform(1000.0, 3000.0), 2)
+        order_id = f"order_RzP{i}xk"
+
+        bank_records.append({
+            'txn_id': f"TXN-{10000 + i}", 'date': bank_date.strftime('%Y-%m-%d'),
+            'amount': amount, 'currency': CURRENCY,
+            'description': f"RAZORPAY SETTLEMENT {order_id}", 'reference_id': order_id
+        })
+        ledger_records.append({
+            'ledger_id': f"LEDG-{50000 + i}", 'date': ledger_date.strftime('%Y-%m-%d'),
+            'amount': amount, 'currency': CURRENCY,
+            'party_name': "Razorpay Payment Gateway", 'invoice_id': order_id,
+            'description': "Customer order payout, net of gateway fee"
         })
         ground_truth.append({'txn_id': f"TXN-{10000 + i}", 'true_ledger_id': f"LEDG-{50000 + i}"})
 
