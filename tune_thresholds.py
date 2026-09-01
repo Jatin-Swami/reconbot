@@ -22,7 +22,12 @@ def sweep_thresholds():
         right_on=['invoice_id', 'amount', 'date'], 
         how='inner'
     )
-    exact_matches = exact_matches.drop_duplicates(subset=['txn_id']).drop_duplicates(subset=['ledger_id'])
+    # Same unambiguous-only rule as match_engine.py, so the "starting point for
+    # Pass 2" here matches what the real pipeline actually hands to Pass 2.
+    txn_id_counts = exact_matches['txn_id'].value_counts()
+    ledger_id_counts = exact_matches['ledger_id'].value_counts()
+    unambiguous = exact_matches['txn_id'].map(txn_id_counts).eq(1) & exact_matches['ledger_id'].map(ledger_id_counts).eq(1)
+    exact_matches = exact_matches[unambiguous]
     
     matched_txns = set(exact_matches['txn_id'])
     matched_ledgers = set(exact_matches['ledger_id'])
