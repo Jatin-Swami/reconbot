@@ -71,6 +71,8 @@ python verify_accuracy.py  # 4. Optional: audits the final result against ground
 
 > **Note:** `match_engine.py` clears out `matches_stage2.csv`, `exceptions.csv`, and `cost_metrics.json` at the start of every run. This is intentional — it stops a stale Pass 3 result from a previous run being silently reported alongside a new Pass 1/2 run. If you only ran steps 1–2 and then check `verify_accuracy.py`, seeing false negatives for the transactions still waiting on Pass 3 is expected, not a bug — run `pass3_engine.py` (step 3) to resolve them.
 
+> **Note:** All CSV/JSON/JSONL files produced by the pipeline (`bank_statement.csv`, `ledger.csv`, `ground_truth.csv`, `matches_stage1.csv`, `matches_stage2.csv`, `unmatched_bank.csv`, `unmatched_ledger.csv`, `exceptions.csv`, `run_state.json`, `cost_metrics.json`, `llm_audit_log.jsonl`) are generated locally and are not committed to the repo. Run the pipeline once (steps 1–3 above) to produce them before launching the dashboard or running the diagnostic scripts.
+
 **4. Launch the Dashboard (optional)**
 ```bash
 streamlit run app.py

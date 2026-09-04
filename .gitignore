@@ -216,3 +216,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+run_state.json
+bank_statement.csv
+ledger.csv
+ground_truth.csv
+matches_stage1.csv
+matches_stage2.csv
+unmatched_bank.csv
+unmatched_ledger.csv
+exceptions.csv
+cost_metrics.json
+llm_audit_log.jsonl

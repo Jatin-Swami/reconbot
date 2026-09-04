@@ -146,8 +146,8 @@ def run_matching_engine():
     
     matches_df = pd.DataFrame(matches)
     
-    final_unmatched_bank = unmatched_bank[~unmatched_bank['txn_id'].isin(newly_matched_txns)]
-    final_unmatched_ledger = unmatched_ledger[~unmatched_ledger['ledger_id'].isin(newly_matched_ledgers)]
+    final_unmatched_bank = unmatched_bank[~unmatched_bank['txn_id'].isin(newly_matched_txns)].copy()
+    final_unmatched_ledger = unmatched_ledger[~unmatched_ledger['ledger_id'].isin(newly_matched_ledgers)].copy()
 
     print(f"[PASS 2] Fuzzy Matches: {len(newly_matched_txns)}. Pushing {len(final_unmatched_bank)} to Pass 3 (LLM).")
 
